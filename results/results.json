@@ -1,0 +1,125 @@
+{
+  "pex_mesh": {
+    "requests": 2000,
+    "errors": 6,
+    "throughput_rps": 61.5,
+    "p50_ms": 679.8,
+    "p95_ms": 1756.8,
+    "p99_ms": 2558.6,
+    "accuracy": 0.902,
+    "auc": 0.931,
+    "served_by": {
+      "edge": 1733,
+      "cloud": 261
+    },
+    "decision_reasons": {
+      "edge model confident": 1176,
+      "sensitive data stays at the edge": 395,
+      "latency budget below expected cloud latency": 162,
+      "edge unsure - escalate": 261
+    }
+  },
+  "monolith": {
+    "requests": 2000,
+    "errors": 0,
+    "throughput_rps": 36.5,
+    "p50_ms": 1355.2,
+    "p95_ms": 1502.4,
+    "p99_ms": 1580.3,
+    "accuracy": 0.901,
+    "auc": 0.949
+  },
+  "chaos": {
+    "pex_mesh": {
+      "requests": 1200,
+      "failed": 0,
+      "success_rate": 1.0
+    },
+    "monolith": {
+      "requests": 1200,
+      "failed": 1156,
+      "success_rate": 0.037
+    }
+  },
+  "xai_response_ms": {
+    "auto": {
+      "p50": 7.51,
+      "p95": 61.84
+    },
+    "async": {
+      "p50": 7.08,
+      "p95": 64.86
+    },
+    "sync": {
+      "p50": 7.8,
+      "p95": 86.2
+    }
+  },
+  "xai_under_load_ms": {
+    "auto": {
+      "p50": 210.6,
+      "p95": 383.8,
+      "throughput_rps": 85.9
+    },
+    "async": {
+      "p50": 230.5,
+      "p95": 595.8,
+      "throughput_rps": 71.9
+    },
+    "sync": {
+      "p50": 201.2,
+      "p95": 467.4,
+      "throughput_rps": 84.0
+    }
+  },
+  "dp_sweep": {
+    "v1_per_reading_dp": {
+      "0.5": {
+        "pex_accuracy": 0.875
+      },
+      "1": {
+        "pex_accuracy": 0.875
+      },
+      "2": {
+        "pex_accuracy": 0.877
+      },
+      "5": {
+        "pex_accuracy": 0.877
+      },
+      "10": {
+        "pex_accuracy": 0.878
+      }
+    },
+    "v2_dp_on_window_means": {
+      "eps=0.5": {
+        "window=50": "23.5% median error",
+        "window=200": "5.7% median error",
+        "window=1000": "1.1% median error"
+      },
+      "eps=1": {
+        "window=50": "12.6% median error",
+        "window=200": "2.8% median error",
+        "window=1000": "0.6% median error"
+      },
+      "eps=2": {
+        "window=50": "6.6% median error",
+        "window=200": "1.4% median error",
+        "window=1000": "0.3% median error"
+      },
+      "eps=5": {
+        "window=50": "2.4% median error",
+        "window=200": "0.6% median error",
+        "window=1000": "0.1% median error"
+      },
+      "eps=10": {
+        "window=50": "1.1% median error",
+        "window=200": "0.3% median error",
+        "window=1000": "0.1% median error"
+      }
+    },
+    "v2_pex_accuracy (no noise on inference)": 0.901,
+    "edge_only_accuracy": 0.897,
+    "cloud_only_accuracy": 0.901,
+    "share_escalated": 0.166
+  }
+}

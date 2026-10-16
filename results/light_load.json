@@ -1,0 +1,17 @@
+{
+  "pex_edge_path": {
+    "p50": 7.6,
+    "p95": 10.1
+  },
+  "pex_cloud_path_forced": {
+    "n_cloud": 60,
+    "p50": 62.6,
+    "p95": 67.9
+  },
+  "monolith": {
+    "p50": 70.3,
+    "p95": 80.3
+  },
+  "shap_ms_edge_model": 0.1,
+  "shap_ms_cloud_model": 18.56
+}
